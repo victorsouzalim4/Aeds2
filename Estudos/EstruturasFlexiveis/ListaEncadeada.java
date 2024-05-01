@@ -31,6 +31,7 @@ class Lista{
         ultimo = ultimo.prox;
         tam++;
     }
+
     public void inserirInicio(int x){
         Celula tmp = new Celula();
 
@@ -40,6 +41,7 @@ class Lista{
         tmp = null;
         tam++;
     }
+
     public void inserir(int x, int pos){
         if(pos < 0 || pos > tam ){
             try{
@@ -62,6 +64,22 @@ class Lista{
             
         
         
+    }
+
+    public void removeFim(){
+        if(ultimo == primeiro){
+            try{
+                throw new Exception("EMPTY LIST");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else{
+            Celula i;
+            for(i = primeiro; i.prox != ultimo; i = i.prox);
+            ultimo = i;
+            i.prox = i = null;
+        }
+
     }
 
     public void mostraLista(){
@@ -91,6 +109,11 @@ public class ListaEncadeada{
         lista.mostraLista();
         lista.inserir(100, 2);
         lista.mostraLista();
+        lista.removeFim();
+        lista.mostraLista();
+        lista.removeFim();
+        lista.mostraLista();
+
 
     }
 }
