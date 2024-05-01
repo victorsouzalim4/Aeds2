@@ -19,7 +19,7 @@ class Celula{
 class Lista{
     private Celula primeiro;
     private Celula ultimo;
-    private int tam ;
+    private int tam;
 
     public Lista(){
         primeiro = ultimo = new Celula();
@@ -60,6 +60,7 @@ class Lista{
             tmp.prox = i.prox;
             i.prox = tmp;
             tmp = i = null;
+            tam++;
          }
             
         
@@ -78,10 +79,44 @@ class Lista{
             for(i = primeiro; i.prox != ultimo; i = i.prox);
             ultimo = i;
             i.prox = i = null;
+            tam--;
         }
 
     }
 
+    public void removeInicio(){
+        if(primeiro == ultimo){
+            try{
+                throw new Exception("EMPTY LIST");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            
+        }else{
+            Celula tmp = primeiro;
+            primeiro = primeiro.prox;
+            tmp = null;
+            tam--;
+        }
+    }
+
+    public void remove(int pos){
+        if(pos < 0 || pos > tam){
+            try{
+                throw new Exception("INVALID POSITION");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else if(pos == 0)removeInicio();
+        else if(pos == tam)removeFim();
+        else{
+            Celula i = primeiro;
+            for(int j = 0; j < pos; i = i.prox, j++);
+            Celula tmp = i.prox;
+            i.prox = tmp.prox;
+            tmp.prox = i = null;
+         }
+    }
     public void mostraLista(){
         for(Celula i = primeiro; i.prox != null; i = i.prox){
             System.out.print(i.prox.elemento + " ");
@@ -107,11 +142,27 @@ public class ListaEncadeada{
         lista.mostraLista();
         lista.inserirFim(4);
         lista.mostraLista();
-        lista.inserir(100, 2);
+        lista.inserir(5, 2);
         lista.mostraLista();
-        lista.removeFim();
+        lista.inserir(6, 4);
         lista.mostraLista();
-        lista.removeFim();
+        lista.inserir(7, 2);
+        lista.mostraLista();
+        lista.inserir(8, 4);
+        lista.mostraLista();
+        //lista.removeFim();
+        //lista.mostraLista();
+        //lista.removeFim();
+        //lista.mostraLista();
+        //lista.removeInicio();
+        //lista.mostraLista();
+        //lista.removeInicio();
+        //lista.mostraLista();
+        lista.remove(5);
+        lista.mostraLista();
+        lista.remove(3);
+        lista.mostraLista();
+        lista.remove(1);
         lista.mostraLista();
 
 
