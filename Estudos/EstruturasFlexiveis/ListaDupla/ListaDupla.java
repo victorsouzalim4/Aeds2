@@ -78,6 +78,28 @@ class List{
         }
     }
 
+    int removeInicio(){
+        int elemento = -1;
+        if(ultimo == primeiro){
+            try{
+                throw new Exception("Lista vazia");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        else{
+            CelulaDupla tmp = primeiro;
+            primeiro = primeiro.prox;
+            primeiro.ant = null;
+            tmp = tmp.prox = null;
+
+            tam--;
+        }
+
+
+        return elemento;
+    }
+
     void mostra(){
         for(CelulaDupla i = primeiro.prox; i != null; i = i.prox){
             System.out.print(i.elemento + " ");
@@ -96,6 +118,8 @@ public class ListaDupla{
         lista.inserirInicio(2);
         lista.mostra();
         lista.inserirInicio(3);
+        lista.mostra();
+        lista.removeInicio();
         lista.mostra();
 
 
