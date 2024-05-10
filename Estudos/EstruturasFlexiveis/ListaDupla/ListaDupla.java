@@ -119,6 +119,30 @@ class List{
         return elemento;
     }
 
+    int remove(int pos){
+        int elemento = -1;
+        if(pos < 0 || pos > tam){
+            try{
+                throw new Exception("Posicao invalida");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else if(pos == 0)removeInicio();
+        else if(pos+1 == tam)removeFim();
+        else{
+            CelulaDupla i = primeiro.prox;
+            for(int j = 0; j < pos; i = i.prox, j++);
+
+            i.ant.prox = i.prox;
+            i.prox.ant = i.ant;
+            elemento = i.elemento;
+
+            i.prox = i.ant = i = null;
+            tam--;
+        }
+        return elemento;
+    }
+
     void mostra(){
         for(CelulaDupla i = primeiro.prox; i != null; i = i.prox){
             System.out.print(i.elemento + " ");
@@ -138,10 +162,21 @@ public class ListaDupla{
         lista.mostra();
         lista.inserirInicio(3);
         lista.mostra();
+        lista.inserirInicio(4);
+        lista.mostra();
+        lista.inserirInicio(3);
+        lista.mostra();
+        lista.inserirFim(7);
+        lista.mostra();
+        lista.remove(3);
+        lista.mostra();
+        lista.remove(4);
+        lista.mostra();
         lista.removeInicio();
         lista.mostra();
         lista.removeFim();
         lista.mostra();
+
 
 
 
