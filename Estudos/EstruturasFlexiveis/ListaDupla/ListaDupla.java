@@ -100,6 +100,25 @@ class List{
         return elemento;
     }
 
+    int removeFim(){
+        int elemento = -1;
+        if(ultimo == primeiro){
+            try{
+                throw new Exception("Lista vazia");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else{
+            CelulaDupla tmp = ultimo;
+            ultimo = ultimo.ant;
+
+            elemento = tmp.elemento;
+            ultimo.prox = tmp.ant = tmp = null;
+            tam--;
+        }
+        return elemento;
+    }
+
     void mostra(){
         for(CelulaDupla i = primeiro.prox; i != null; i = i.prox){
             System.out.print(i.elemento + " ");
@@ -121,6 +140,9 @@ public class ListaDupla{
         lista.mostra();
         lista.removeInicio();
         lista.mostra();
+        lista.removeFim();
+        lista.mostra();
+
 
 
     }
