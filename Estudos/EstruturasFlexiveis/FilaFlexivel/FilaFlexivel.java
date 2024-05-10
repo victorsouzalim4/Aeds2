@@ -1,4 +1,4 @@
-package Estudos.EstruturasFlexiveis;
+package Estudos.EstruturasFlexiveis.FilaFlexivel;
 
 class Celula{
     public int elemento;
@@ -30,6 +30,26 @@ class Fila{
         tmp = null;
     }
 
+    int remove(){
+        int elemento = 0;
+        if(ultimo == primeiro){
+            try{
+                throw new Exception("FILA VAZIA");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        else{
+            Celula tmp = primeiro;
+            primeiro = primeiro.prox;
+            elemento = primeiro.elemento;
+
+            tmp.prox = tmp = null;
+        }
+
+        return elemento;
+    }
+
     void mostra(){
         for(Celula i = primeiro.prox; i != null; i = i.prox){
             System.out.print(i.elemento + " ");
@@ -48,6 +68,24 @@ public class FilaFlexivel {
         fila.mostra();
         fila.inserir(3);
         fila.mostra();
+        fila.inserir(4);
+        fila.mostra();
+        fila.inserir(5);
+        fila.mostra();
+        fila.remove();
+        fila.mostra();
+        fila.remove();
+        fila.mostra();
+        fila.remove();
+        fila.mostra();
+        fila.remove();
+        fila.mostra();
+        fila.remove();
+        fila.mostra();
+
 
     }  
 }
+
+
+

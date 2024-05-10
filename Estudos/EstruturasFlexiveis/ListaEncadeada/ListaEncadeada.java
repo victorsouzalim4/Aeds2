@@ -1,4 +1,4 @@
-package Estudos.EstruturasFlexiveis;
+package Estudos.EstruturasFlexiveis.ListaEncadeada;
 import java.util.Scanner;
 
 class Celula{

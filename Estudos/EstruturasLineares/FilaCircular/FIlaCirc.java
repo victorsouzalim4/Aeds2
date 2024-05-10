@@ -1,60 +1,61 @@
+
 import java.util.Scanner;
 
-class Fil {
+
+class Fila{
     int array[];
-    int n;
+    int primeiro, ultimo;
 
-    Fil() {
+   Fila(){
         array = new int[6];
-        n = 0;
+        primeiro = ultimo = 0;
+    }
+    
+   Fila(int tam){
+        array = new int[tam +1];
+        primeiro = ultimo = 0;
     }
 
-    Fil(int tam) {
-        array = new int[tam];
-        n = 0;
-    }
-
-    void IF(int x) {
-        if (n == array.length) {
+    void I(int x){
+        if((ultimo+1) % array.length == primeiro){
             System.out.println("FILA CHEIA");
-        } else {
-            array[n++] = x;
+        }
+        else{
+            array[ultimo] = x;
+            ultimo = (ultimo+1) % array.length;
         }
     }
 
-    int RI() {
-        int x = array[0];
-        if (n == 0) {
+    int R(){
+        int x = -1;
+        if(ultimo == primeiro){
             System.out.println("FILA VAZIA");
-            return -1;
-        } else {
-            for (int i = 0; i < n-1; i++) {
-                array[i] = array[i + 1];
-            }
-            n--;
         }
-
+        else{
+            x = array[primeiro];
+            primeiro = (primeiro+1) % array.length;
+        }
         return x;
     }
 
-    void Mostra() {
-        System.out.println("FILA: ");
-        for (int i = 0; i < n; i++) {
+
+    void Mostra(){
+        int i = primeiro;
+        while(i != ultimo){
             System.out.print(array[i] + " ");
+            i = (i+1) % array.length;
         }
         System.out.println();
     }
 }
 
-public class Fila {
-
-    public static void main(String[] args) {
-
+public class FIlaCirc{
+    public static void main(String[] args){
         Scanner Sc = new Scanner(System.in);
 
         System.out.println("Digite o tamanho da vetor");
         int tam = Sc.nextInt();
-        Fil pilha = new Fil(tam);
+        Fila fila = new Fila(tam);
 
 
         int escolha = 0;
@@ -71,20 +72,19 @@ public class Fila {
                 case 1:
                     System.out.println("Digite o valor que deseja adicionar");
                     int x = Sc.nextInt();
-                    pilha.IF(x);
+                    fila.I(x);
                     break;
                 case 2:
-                    pilha.RI();
+                    fila.R();
                     break;
                 case 3:
-                    pilha.Mostra();
+                    fila.Mostra();
                     break;
                 default:
                     escolha = 4;
             }
 
-            //escolha = Sc.nextInt();
         }
-
+        Sc.close();
     }
 }

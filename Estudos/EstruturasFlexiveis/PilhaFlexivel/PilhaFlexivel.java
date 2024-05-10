@@ -1,4 +1,4 @@
-package Estudos.EstruturasFlexiveis;
+package Estudos.EstruturasFlexiveis.PilhaFlexivel;
 
 class Celula {
     public int elemento;
