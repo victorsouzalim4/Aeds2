@@ -1,28 +1,28 @@
 package Estudos.EstruturasFlexiveis.MatrizFlexivel;
 
-class Celula{
+class Celula {
     public int elemento;
     public Celula esq;
     public Celula dir;
     public Celula sup;
     public Celula inf;
 
-    Celula(){
+    Celula() {
         this.elemento = 0;
         this.esq = this.dir = this.sup = this.inf = null;
     }
 }
 
-class Matriz{
+class Matriz {
     private Celula inicio;
     private int NumLinhas;
     private int NumColunas;
 
-    Matriz(){
+    Matriz() {
         inicio = createLinha();
         Celula linhaAbaixo = createLinha();
 
-        for(Celula i = inicio, tmp = linhaAbaixo; i != null; i = i.dir){
+        for (Celula i = inicio, tmp = linhaAbaixo; i != null; i = i.dir) {
             i.inf = tmp;
             tmp.sup = i;
 
@@ -33,7 +33,7 @@ class Matriz{
 
     }
 
-    Celula createLinha(){
+    Celula createLinha() {
         Celula i = new Celula();
         Celula j = new Celula();
 
@@ -43,11 +43,11 @@ class Matriz{
         return i;
     }
 
-    Celula createLinha(int x){
+    Celula createLinha(int x) {
         Celula i = new Celula();
         Celula tmp = i;
 
-        for(int j = 0; j < x - 1; j++){
+        for (int j = 0; j < x - 1; j++) {
             Celula nova = new Celula();
             tmp.dir = nova;
             nova.esq = tmp;
@@ -57,11 +57,11 @@ class Matriz{
         return i;
     }
 
-    Celula createColuna(int x){
+    Celula createColuna(int x) {
         Celula i = new Celula();
         Celula tmp = i;
 
-        for(int j = 0; j < x -1; j++){
+        for (int j = 0; j < x - 1; j++) {
             Celula nova = new Celula();
             tmp.inf = nova;
             nova.sup = tmp;
@@ -72,23 +72,24 @@ class Matriz{
         return i;
     }
 
-    void addLinha(){
+    void addLinha() {
         Celula i;
-        for(i = inicio; i.inf != null; i = i.inf);
-        for(Celula j = createLinha(NumColunas); j != null; j = j.dir){
+        for (i = inicio; i.inf != null; i = i.inf)
+            ;
+        for (Celula j = createLinha(NumColunas); j != null; j = j.dir) {
             i.inf = j;
             j.sup = i;
 
             i = i.dir;
         }
         NumLinhas++;
-        System.out.println(NumLinhas);
     }
 
-    void addColuna(){
+    void addColuna() {
         Celula i;
-        for(i = inicio; i.dir != null; i = i.dir);
-        for(Celula j = createColuna(NumLinhas); j != null; j = j.inf){
+        for (i = inicio; i.dir != null; i = i.dir)
+            ;
+        for (Celula j = createColuna(NumLinhas); j != null; j = j.inf) {
             i.dir = j;
             j.esq = i;
 
@@ -98,35 +99,57 @@ class Matriz{
         NumColunas++;
     }
 
-    void removeLinha(){
-        if(NumLinhas == 0){
-            try{
+    void removeLinha() {
+        if (NumLinhas == 0) {
+            try {
                 throw new Exception("Matriz vazia");
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
-        }else if(NumLinhas == 1){
+        } else if (NumLinhas == 1) {
             inicio = null;
             NumLinhas--;
-        } 
-        else{
+        } else {
             Celula i;
-            for(i = inicio; i.inf != null; i = i.inf);
-            while(i != null){
+            for (i = inicio; i.inf != null; i = i.inf)
+                ;
+            while (i != null) {
                 i.sup.inf = null;
                 i.sup = null;
-    
+
                 i = i.dir;
             }
-    
+
             NumLinhas--;
         }
     }
 
-    void mostra(){
-        for(Celula i = inicio; i != null; i = i.inf){
-            for(Celula j = i; j != null; j = j.dir){
+    void removeColuna() {
+        if (NumColunas == 0) {
+            try {
+                throw new Exception("Matriz vazia");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (NumColunas == 1) {
+            inicio = null;
+            NumColunas--;
+        } else {
+            Celula i;
+            for (i = inicio; i.dir != null; i = i.dir)
+                ;
+            while (i != null) {
+                i.esq.dir = i.esq = null;
+                i = i.inf;
+            }
+            NumColunas--;
+        }
+    }
+
+    void mostra() {
+        for (Celula i = inicio; i != null; i = i.inf) {
+            for (Celula j = i; j != null; j = j.dir) {
                 System.out.print(j.elemento + " ");
             }
             System.out.println();
@@ -136,7 +159,7 @@ class Matriz{
 }
 
 public class MatrizFlexivel {
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
         Matriz mat = new Matriz();
         mat.mostra();
@@ -156,11 +179,10 @@ public class MatrizFlexivel {
         mat.removeLinha();
         mat.mostra();
 
-        mat.removeLinha();
-        mat.mostra();
-        mat.removeLinha();
+        mat.removeColuna();
         mat.mostra();
 
-        
+
+
     }
 }
