@@ -82,6 +82,7 @@ class Matriz{
             i = i.dir;
         }
         NumLinhas++;
+        System.out.println(NumLinhas);
     }
 
     void addColuna(){
@@ -98,13 +99,28 @@ class Matriz{
     }
 
     void removeLinha(){
-        Celula i;
-        for(i = inicio; i.inf != null; i = i.inf);
-        while(i != null){
-            i.sup.inf = null;
-            i.sup = null;
+        if(NumLinhas == 0){
+            try{
+                throw new Exception("Matriz vazia");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
 
-            i = i.dir;
+        }else if(NumLinhas == 1){
+            inicio = null;
+            NumLinhas--;
+        } 
+        else{
+            Celula i;
+            for(i = inicio; i.inf != null; i = i.inf);
+            while(i != null){
+                i.sup.inf = null;
+                i.sup = null;
+    
+                i = i.dir;
+            }
+    
+            NumLinhas--;
         }
     }
 
@@ -139,6 +155,12 @@ public class MatrizFlexivel {
 
         mat.removeLinha();
         mat.mostra();
+
+        mat.removeLinha();
+        mat.mostra();
+        mat.removeLinha();
+        mat.mostra();
+
         
     }
 }
