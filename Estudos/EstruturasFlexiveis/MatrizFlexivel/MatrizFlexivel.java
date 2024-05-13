@@ -97,6 +97,17 @@ class Matriz{
         NumColunas++;
     }
 
+    void removeLinha(){
+        Celula i;
+        for(i = inicio; i.inf != null; i = i.inf);
+        while(i != null){
+            i.sup.inf = null;
+            i.sup = null;
+
+            i = i.dir;
+        }
+    }
+
     void mostra(){
         for(Celula i = inicio; i != null; i = i.inf){
             for(Celula j = i; j != null; j = j.dir){
@@ -124,6 +135,9 @@ public class MatrizFlexivel {
         mat.mostra();
 
         mat.addLinha();
+        mat.mostra();
+
+        mat.removeLinha();
         mat.mostra();
         
     }
