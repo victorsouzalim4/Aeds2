@@ -147,6 +147,25 @@ class Matriz {
         }
     }
 
+    void addElemento(int x, int linhaPos, int colunaPos){
+        if(linhaPos >= NumLinhas || colunaPos >= NumColunas || linhaPos < 0 || colunaPos < 0){
+            try{
+                throw new Exception("Posicao invalida");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else{
+            Celula tmp = inicio;
+            for(int i = 0; i < colunaPos; i++){
+                tmp = tmp.dir;
+            }
+            for(int i = 0; i < linhaPos; i++){
+                tmp = tmp.inf;
+            }
+            tmp.elemento = x;
+        }
+    }
+
     void mostra() {
         for (Celula i = inicio; i != null; i = i.inf) {
             for (Celula j = i; j != null; j = j.dir) {
@@ -180,6 +199,15 @@ public class MatrizFlexivel {
         mat.mostra();
 
         mat.removeColuna();
+        mat.mostra();
+
+        mat.addElemento(1, 0, 0);
+        mat.mostra();
+
+        mat.addElemento(2, 1, 1);
+        mat.mostra();
+
+        mat.addElemento(3, 2, 2);
         mat.mostra();
 
 
