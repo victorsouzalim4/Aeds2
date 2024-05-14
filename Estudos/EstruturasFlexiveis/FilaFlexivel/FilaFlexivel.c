@@ -39,6 +39,21 @@ void inserir(Fila* fila, int x){
     free(tmp);
 }
 
+void remover(Fila* fila){
+    if(fila->primeiro == fila->ultimo){
+        printf("FILA VAZIA");
+    }else{
+        Celula* tmp = fila->primeiro;
+
+        fila->primeiro = fila->primeiro->prox;
+        tmp->prox = NULL;
+
+        tmp = NULL;
+        free(tmp);
+    }
+
+}
+
 void mostra(Fila* fila){
     for(Celula* i = fila->primeiro->prox; i != NULL; i = i->prox){
         printf("%d ", i->elemento);
@@ -55,6 +70,10 @@ int main(){
     inserir(fila, 2);
     mostra(fila);
     inserir(fila, 3);
+    mostra(fila);
+    remover(fila);
+    mostra(fila);
+    remover(fila);
     mostra(fila);
 
     //printf("%d", fila->primeiro->elemento);
