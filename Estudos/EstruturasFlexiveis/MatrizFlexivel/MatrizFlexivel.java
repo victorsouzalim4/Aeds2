@@ -166,6 +166,28 @@ class Matriz {
         }
     }
 
+    void getDiagonal(){
+        if(NumColunas != NumLinhas){
+            try{
+                throw new Exception("Esta matriz nao possui Diagonal Principal");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else{
+            Celula i = inicio;
+
+            while(i != null){
+                System.out.print(i.elemento + " ");
+                i = i.dir;
+                if(i != null){
+                    i = i.inf;
+                }
+            }
+            System.out.println("\n");
+        }
+
+    }
+
     void mostra() {
         for (Celula i = inicio; i != null; i = i.inf) {
             for (Celula j = i; j != null; j = j.dir) {
@@ -210,7 +232,15 @@ public class MatrizFlexivel {
         mat.addElemento(3, 2, 2);
         mat.mostra();
 
+        mat.getDiagonal();
 
+        mat.addLinha();
+        mat.mostra();
+
+        mat.addColuna();
+        mat.mostra();
+
+        mat.getDiagonal();
 
     }
 }
