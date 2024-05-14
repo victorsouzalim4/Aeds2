@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct Celula{
     int elemento;
@@ -28,9 +29,19 @@ Fila* ConstrutorFila(){
     return fila;
 }
 
+void inserir(Fila* fila, int x){
+    Celula* tmp = ConstrutorCelula(x);
+
+    fila->ultimo->prox = tmp;
+    fila->ultimo = fila->ultimo->prox;
+
+    tmp = NULL;
+    free(tmp);
+}
+
 void mostra(Fila* fila){
     for(Celula* i = fila->primeiro->prox; i != NULL; i = i->prox){
-        printf("%d", i->elemento);
+        printf("%d ", i->elemento);
     }
     printf("\n");
 }
@@ -38,6 +49,12 @@ void mostra(Fila* fila){
 int main(){
 
     Fila* fila = ConstrutorFila();
+    mostra(fila);
+    inserir(fila, 1);
+    mostra(fila);
+    inserir(fila, 2);
+    mostra(fila);
+    inserir(fila, 3);
     mostra(fila);
 
     //printf("%d", fila->primeiro->elemento);
