@@ -28,9 +28,17 @@ Fila* ConstrutorFila(){
     return fila;
 }
 
+void mostra(Fila* fila){
+    for(Celula* i = fila->primeiro->prox; i != NULL; i = i->prox){
+        printf("%d", i->elemento);
+    }
+    printf("\n");
+}
+
 int main(){
 
     Fila* fila = ConstrutorFila();
+    mostra(fila);
 
     //printf("%d", fila->primeiro->elemento);
 
