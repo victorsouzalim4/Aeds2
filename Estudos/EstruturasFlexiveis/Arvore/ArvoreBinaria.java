@@ -38,6 +38,11 @@ class Arvore{
         System.out.println();
     }
 
+    int pesquisa(int x){
+        int resp = pesquisa(raiz, x);
+        return resp;
+    }
+
     private No inserir(No i, int x){
         if(i == null){
             i = new No(x);
@@ -76,6 +81,21 @@ class Arvore{
             caminharPreOrdem(i.dir);
         }
     }
+
+    private int pesquisa(No i, int x){
+        int resp = -1;
+        if(i == null){
+            return resp;
+        }else if(x > i.elemento){
+            resp = pesquisa(i.dir, x);
+        }else if(x < i.elemento){
+            resp = pesquisa(i.esq, x);
+        }else{
+            resp = 1;
+        }
+
+        return resp;
+    }
 }
 
 public class ArvoreBinaria{
@@ -92,6 +112,7 @@ public class ArvoreBinaria{
         tree.caminharPosOrdem();
         tree.caminharPreOrdem();
 
+        System.out.println(tree.pesquisa(3));
 
     }
 }
