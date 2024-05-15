@@ -48,6 +48,11 @@ class Arvore{
         return altura;
     }
 
+    int getSoma(){
+        int soma = getSoma(raiz);
+        return soma;
+    }
+
     private No inserir(No i, int x){
         if(i == null){
             i = new No(x);
@@ -102,7 +107,7 @@ class Arvore{
         return resp;
     }
 
-    int getAltura(No i){
+    private int getAltura(No i){
         if(i == null){
             return -1;
         }
@@ -112,24 +117,33 @@ class Arvore{
         int altura = (alturaEsq > alturaDir ? alturaEsq : alturaDir);
         return altura; 
     }
+
+    private int getSoma(No i){
+        if(i == null){
+            return 0;
+        }
+        int soma = i.elemento + getSoma(i.esq) + getSoma(i.dir);
+        return soma;
+    }
 }
 
 public class ArvoreBinaria{
     public static void main(String args[]){
 
-        Arvore tree = new Arvore(0);
-        tree.inserir(1);
-        tree.inserir(2);
-        tree.inserir(3);
+        Arvore tree = new Arvore(-2);
         tree.inserir(4);
-        tree.inserir(5);
-        tree.inserir(6);
+        tree.inserir(2);
+        tree.inserir(7);
+        tree.inserir(-3);
+        tree.inserir(-5);
+        tree.inserir(1);
         tree.caminharCentral();
         tree.caminharPosOrdem();
         tree.caminharPreOrdem();
 
         //System.out.println(tree.pesquisa(3));
-        System.out.println(tree.getAltura());
+        //System.out.println(tree.getAltura());
+        System.out.println(tree.getSoma());
 
     }
 }
