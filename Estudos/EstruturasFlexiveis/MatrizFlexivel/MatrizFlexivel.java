@@ -18,7 +18,7 @@ class Matriz {
     private int NumLinhas;
     private int NumColunas;
 
-    Matriz() {
+    Matriz(){
         inicio = createLinha();
         Celula linhaAbaixo = createLinha();
 
@@ -30,10 +30,9 @@ class Matriz {
         }
         NumLinhas = 2;
         NumColunas = 2;
-
     }
 
-    Celula createLinha() {
+    Celula createLinha(){
         Celula i = new Celula();
         Celula j = new Celula();
 
@@ -43,7 +42,7 @@ class Matriz {
         return i;
     }
 
-    Celula createLinha(int x) {
+    Celula createLinha(int x){
         Celula i = new Celula();
         Celula tmp = i;
 
@@ -57,7 +56,7 @@ class Matriz {
         return i;
     }
 
-    Celula createColuna(int x) {
+    Celula createColuna(int x){
         Celula i = new Celula();
         Celula tmp = i;
 
@@ -72,7 +71,7 @@ class Matriz {
         return i;
     }
 
-    void addLinha() {
+    void addLinha(){
         Celula i;
         for (i = inicio; i.inf != null; i = i.inf)
             ;
@@ -85,7 +84,7 @@ class Matriz {
         NumLinhas++;
     }
 
-    void addColuna() {
+    void addColuna(){
         Celula i;
         for (i = inicio; i.dir != null; i = i.dir)
             ;
@@ -99,7 +98,7 @@ class Matriz {
         NumColunas++;
     }
 
-    void removeLinha() {
+    void removeLinha(){
         if (NumLinhas == 0) {
             try {
                 throw new Exception("Matriz vazia");
@@ -125,7 +124,7 @@ class Matriz {
         }
     }
 
-    void removeColuna() {
+    void removeColuna(){
         if (NumColunas == 0) {
             try {
                 throw new Exception("Matriz vazia");
@@ -188,7 +187,7 @@ class Matriz {
 
     }
 
-    void mostra() {
+    void mostra(){
         for (Celula i = inicio; i != null; i = i.inf) {
             for (Celula j = i; j != null; j = j.dir) {
                 System.out.print(j.elemento + " ");
