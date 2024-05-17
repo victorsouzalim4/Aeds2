@@ -74,6 +74,10 @@ class Agenda{
         caminharCentral(raiz);
     }
 
+    public void mostraContatos(){
+        mostraContatos(raiz);
+    }
+
     private No inserirNo(No i, char letra){
         if(i == null){
             i = new No(letra);
@@ -118,6 +122,21 @@ class Agenda{
         }
     }
 
+    private void mostraContatos(No i){
+        if(i != null){
+            mostraContatos(i.esq);
+            boolean flag = true;
+            for(Celula tmp = i.primeiro; tmp != null && flag == true; tmp = tmp.prox){
+                if(tmp.contato.nome == ""){
+                    flag = false;
+                }else{
+                    System.out.println(tmp.contato.nome + " " + tmp.contato.telefone + " " + tmp.contato.email + " " + tmp.contato.cpf );
+                }
+            }
+            mostraContatos(i.dir);
+        }
+    }
+
 }
 
 public class ArvoreDeLista {
@@ -128,8 +147,15 @@ public class ArvoreDeLista {
         //test.caminharCentral();
         Contato contato = new Contato("Victor", "1234567", "dhfhsfsd", 1234);
         test.inserir(contato);
-        Contato contat = new Contato("Vinicius", "1234567", "dhfhsfsd", 1234);
-        test.inserir(contat);
+
+        contato = new Contato("Vinicius", "1234567", "dhfhsfsd", 1234);
+        test.inserir(contato);
+
+        contato = new Contato("Ana", "1234567", "dhfhsfsd", 1234);
+        test.inserir(contato);
+
+ 
+        test.mostraContatos();
         
 
 
