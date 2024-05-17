@@ -208,22 +208,5 @@ public class ArvoreDeLista {
         test.mostraContatos();
         
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //No test = new No('V', "Victor", "12345", "shdhgsjsd", 123);
-
-        //System.out.println(test.primeiro.contato.nome + " " + test.primeiro.contato.telefone + " "  + test.primeiro.contato.email + " " + test.primeiro.contato.cpf);
-
     }
 }

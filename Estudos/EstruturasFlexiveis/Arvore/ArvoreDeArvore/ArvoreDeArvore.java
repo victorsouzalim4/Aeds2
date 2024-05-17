@@ -211,21 +211,21 @@ class Arvore {
 public class ArvoreDeArvore {
     public static void main(String args[]) {
 
-        Arvore arv = new Arvore();
-        arv.inserir('D');
-        arv.inserir('V');
-        arv.inserir('F');
-        arv.caminharCentral();
-        arv.inserirNome("Victor");
-        arv.inserirNome("Douglas");
-        arv.inserirNome("Felipe");
-        arv.inserirNome("Vinicius");
-        arv.inserirNome("Diego");
-        arv.inserirNome("Fernando");
+        Arvore tree = new Arvore();
+        tree.inserir('D');
+        tree.inserir('V');
+        tree.inserir('F');
+        tree.caminharCentral();
+        tree.inserirNome("Victor");
+        tree.inserirNome("Douglas");
+        tree.inserirNome("Felipe");
+        tree.inserirNome("Vinicius");
+        tree.inserirNome("Diego");
+        tree.inserirNome("Fernando");
 
-        //arv.mostrar();
+        //tree.mostrar();
 
-        arv.pesquisar("Pedro");
+        tree.pesquisar("Pedro");
 
     }
 }
