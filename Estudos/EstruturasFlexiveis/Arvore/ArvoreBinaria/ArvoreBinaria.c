@@ -22,6 +22,8 @@ typedef struct Arvore{
 Arvore* arvoreConstrutor(){
     Arvore* i = (Arvore*) malloc(sizeof(Arvore));
     i->raiz = NULL;
+
+    return i;
 }
 
 No* inserir(No* i, int x){
@@ -34,6 +36,15 @@ No* inserir(No* i, int x){
     }else{
         printf("ERRO, VALOR INVALIDO");
     }
+    return i;
+}
+
+void caminharCentral(No* i){
+    if(i != NULL){
+        caminharCentral(i->esq);
+        printf("%d ", i->elemento);
+        caminharCentral(i->dir);
+    }
 }
 
 
@@ -43,6 +54,23 @@ int main(){
     Arvore* tree = arvoreConstrutor();
 
     tree->raiz = inserir(tree->raiz, 2);
+    caminharCentral(tree->raiz);
+    printf("\n");
 
-    printf("%d", tree->raiz->elemento);
+    tree->raiz = inserir(tree->raiz, 3);
+    caminharCentral(tree->raiz);
+    printf("\n");
+
+    tree->raiz = inserir(tree->raiz, 1);
+    caminharCentral(tree->raiz);
+    printf("\n");
+
+    tree->raiz = inserir(tree->raiz, -2);
+    caminharCentral(tree->raiz);
+    printf("\n");
+
+    tree->raiz = inserir(tree->raiz, 4);
+    caminharCentral(tree->raiz);
+    printf("\n");
+
 }
