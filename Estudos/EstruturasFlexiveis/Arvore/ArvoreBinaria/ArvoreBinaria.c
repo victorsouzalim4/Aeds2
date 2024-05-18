@@ -47,6 +47,14 @@ void caminharCentral(No* i){
     }
 }
 
+int somaNum(No* i){
+    if(i == NULL){
+        return 0;
+    }
+    int soma = i->elemento + somaNum(i->esq) + somaNum(i->dir);
+    return soma;
+}
+
 
 
 int main(){
@@ -72,5 +80,7 @@ int main(){
     tree->raiz = inserir(tree->raiz, 4);
     caminharCentral(tree->raiz);
     printf("\n");
+
+    printf("%d", somaNum(tree->raiz));
 
 }
