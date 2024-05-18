@@ -15,11 +15,34 @@ No* construtorNo(int x){
     return i;
 }
 
+typedef struct Arvore{
+    No* raiz;
+}Arvore;
+
+Arvore* arvoreConstrutor(){
+    Arvore* i = (Arvore*) malloc(sizeof(Arvore));
+    i->raiz = NULL;
+}
+
+No* inserir(No* i, int x){
+    if(i == NULL){
+        i = construtorNo(x);
+    }else if(x > i->elemento){
+        i->dir = inserir(i->dir, x);
+    }else if(x < i->elemento){
+        i->esq = inserir(i->esq, x);
+    }else{
+        printf("ERRO, VALOR INVALIDO");
+    }
+}
+
 
 
 int main(){
-    No* no = construtorNo(1);
-    printf("%d", no->elemento);
 
-    
+    Arvore* tree = arvoreConstrutor();
+
+    tree->raiz = inserir(tree->raiz, 2);
+
+    printf("%d", tree->raiz->elemento);
 }
