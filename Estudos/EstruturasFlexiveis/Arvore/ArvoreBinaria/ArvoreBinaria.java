@@ -164,27 +164,12 @@ class Arvore{
 public class ArvoreBinaria{
     public static void main(String args[]){
 
-        Arvore tree = new Arvore(-2);
-        tree.inserir(4);
-        tree.inserir(2);
-        tree.inserir(7);
-        tree.inserir(-5);
-        tree.inserir(-3);
-        tree.inserir(1);
-        tree.inserir(13);
-        tree.inserir(15);
-        tree.inserir(8);
-        tree.inserir(9);
-        tree.inserir(0);
-        tree.inserir(12);
-        tree.inserir(11);
-        tree.inserir(10);
+        Arvore tree = new Arvore(0);
+        for(int i = 1; i <= 1024; i++){
+            tree.inserir(i);
+        }
+
         System.out.println(tree.getAltura());
-
-
-        //System.out.println(tree.pesquisa(3));
-        //System.out.println(tree.getAltura());
-        //System.out.println(tree.getSoma());
 
     }
 }

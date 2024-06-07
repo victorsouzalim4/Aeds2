@@ -222,26 +222,13 @@ class Arvore{
 public class AVL{
     public static void main(String args[]){
 
-        Arvore tree = new Arvore(-2);
-        tree.inserir(4);
-        tree.inserir(2);
-        tree.inserir(7);
-        tree.inserir(-5);
-        tree.inserir(-3);
-        tree.inserir(1);
-        tree.inserir(-6);
+        Arvore tree = new Arvore(0);
 
-        tree.caminharPreOrdem();
+        for(int i = 1; i <= 1024; i++){
+            tree.inserir(i);
+        }
+
         System.out.println(tree.getAltura());
-        tree.remover(-2);
-        tree.remover(4);
-        tree.caminharPreOrdem();
-        System.out.println(tree.getAltura());
-
-
-        //System.out.println(tree.pesquisa(3));
-        //System.out.println(tree.getAltura());
-        //System.out.println(tree.getSoma());
 
     }
 }
