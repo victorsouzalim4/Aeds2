@@ -38,6 +38,10 @@ class Arvore{
         System.out.println();
     }
 
+    void remover(int x){
+        raiz = remover(raiz, x);
+    }
+
     int pesquisa(int x){
         int resp = pesquisa(raiz, x);
         return resp;
@@ -92,6 +96,24 @@ class Arvore{
         }
     }
 
+    private No remover(No i, int x){
+        if(i == null){
+            System.out.println("ERRO, elemento nao encontrado");
+        }else if(x < i.elemento){
+            i.esq = remover(i.esq, x);
+        }else if(x > i.elemento){
+            i.dir = remover(i.dir, x);
+        }else if(i.dir == null){
+            i = i.esq;
+        }else if(i.esq == null){
+            i = i.dir;
+        }else{
+            i.esq = getMaiorEsq(i, i.esq);
+        }
+
+        return i;
+    }
+
     private int pesquisa(No i, int x){
         int resp = -1;
         if(i == null){
@@ -125,6 +147,18 @@ class Arvore{
         int soma = i.elemento + getSoma(i.esq) + getSoma(i.dir);
         return soma;
     }
+
+    private No getMaiorEsq(No i, No j){
+        if(j.dir == null){
+            i.elemento = j.elemento;
+            j = j.esq;
+        }else{
+            j.dir = getMaiorEsq(i, j.dir);
+        }
+
+        return j;
+    }
+
 }
 
 public class ArvoreBinaria{
@@ -134,16 +168,21 @@ public class ArvoreBinaria{
         tree.inserir(4);
         tree.inserir(2);
         tree.inserir(7);
-        tree.inserir(-3);
         tree.inserir(-5);
+        tree.inserir(-3);
         tree.inserir(1);
+        tree.inserir(-6);
         tree.caminharCentral();
         tree.caminharPosOrdem();
         tree.caminharPreOrdem();
+        tree.remover(-2);
+        tree.remover(-3);
+        tree.caminharPreOrdem();
+
 
         //System.out.println(tree.pesquisa(3));
         //System.out.println(tree.getAltura());
-        System.out.println(tree.getSoma());
+        //System.out.println(tree.getSoma());
 
     }
 }
