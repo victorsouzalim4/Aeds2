@@ -1,4 +1,4 @@
-package Estudos.EstruturasFlexiveis.Arvore.ArvoreBinaria;
+package Estudos.EstruturasFlexiveis.Arvore.AVL;
 
 class No{
     public int elemento;
@@ -69,6 +69,23 @@ class Arvore{
             return i;
         }
 
+        if(getFator(i) == -2){
+            //System.out.println("Rotacao dir");
+            if(getFator(i.esq) == 1){
+                //System.out.println("Dupla esq-dir");
+                i.esq = rotacaoEsq(i.esq); 
+            }
+            i = rotacaoDir(i);
+
+        }else if(getFator(i) == 2){
+            //System.out.println("Rotacao esq");
+            if(getFator(i.dir) == -1){
+                //System.out.println("Dupla dir-esq");
+                i.dir = rotacaoDir(i.dir);
+            }
+            i = rotacaoEsq(i);
+        }
+
         return i;
     }
 
@@ -109,6 +126,23 @@ class Arvore{
             i = i.dir;
         }else{
             i.esq = getMaiorEsq(i, i.esq);
+        }
+
+        if(getFator(i) == -2){
+            //System.out.println("Rotacao dir");
+            if(getFator(i.esq) == 1){
+                //System.out.println("Dupla esq-dir");
+                i.esq = rotacaoEsq(i.esq); 
+            }
+            i = rotacaoDir(i);
+
+        }else if(getFator(i) == 2){
+            //System.out.println("Rotacao esq");
+            if(getFator(i.dir) == -1){
+                //System.out.println("Dupla dir-esq");
+                i.dir = rotacaoDir(i.dir);
+            }
+            i = rotacaoEsq(i);
         }
 
         return i;
@@ -159,9 +193,33 @@ class Arvore{
         return j;
     }
 
+    private int getFator(No i){
+
+        int alturaEsq = getAltura(i.esq) + 1;
+        int alturaDir = getAltura(i.dir) + 1;
+
+        return (alturaDir - alturaEsq);
+
+    }
+
+    private No rotacaoDir(No i){
+        No tmp = i.esq;
+        i.esq = tmp.dir;
+        tmp.dir = i;
+
+        return tmp;
+    }
+
+    private No rotacaoEsq(No i){
+        No tmp = i.dir;
+        i.dir = tmp.esq;
+        tmp.esq = i;
+
+        return tmp;
+    }
 }
 
-public class ArvoreBinaria{
+public class AVL{
     public static void main(String args[]){
 
         Arvore tree = new Arvore(-2);
@@ -171,14 +229,13 @@ public class ArvoreBinaria{
         tree.inserir(-5);
         tree.inserir(-3);
         tree.inserir(1);
-        tree.inserir(13);
-        tree.inserir(15);
-        tree.inserir(8);
-        tree.inserir(9);
-        tree.inserir(0);
-        tree.inserir(12);
-        tree.inserir(11);
-        tree.inserir(10);
+        tree.inserir(-6);
+
+        tree.caminharPreOrdem();
+        System.out.println(tree.getAltura());
+        tree.remover(-2);
+        tree.remover(4);
+        tree.caminharPreOrdem();
         System.out.println(tree.getAltura());
 
 
