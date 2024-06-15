@@ -10,8 +10,8 @@ class Table{
         areaDeReserva = new int[5];
         Nulo = -1;
 
-        for(int i = 0; i < 10; i++, tabela[i] = Nulo);
-        for(int i = 0; i < 5; i++, areaDeReserva[i] = Nulo);
+        for(int i = 0; i < 10; i++)tabela[i] = Nulo;
+        for(int i = 0; i < 5; i++)areaDeReserva[i] = Nulo;
     }
 
     public void inserir(int x){
@@ -34,11 +34,34 @@ class Table{
     private int hash(int x){
         return (x % 10);
     }
+
+    public void mostra(){
+        for(int i = 0; i < tabela.length; i++){
+            if(tabela[i] != Nulo){
+                System.out.print(tabela[i] + " ");
+            }
+        }
+        System.out.println("\nArea De Reserva:");
+        for(int i = 0; i < areaDeReserva.length; i++){
+            if(areaDeReserva[i] != Nulo){
+                System.out.print(areaDeReserva[i] + " ");
+            }
+        }
+    }
 }
 
 
 public class HashTableRA{
     public static void main(String[] args){
+        Table tabela = new Table();
 
+        tabela.inserir(0);
+        tabela.inserir(10);
+        tabela.inserir(20);
+        tabela.inserir(30);
+        tabela.inserir(7);
+        tabela.inserir(2);
+        tabela.inserir(17);
+        tabela.mostra();
     }   
 }
