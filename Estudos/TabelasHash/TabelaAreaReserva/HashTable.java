@@ -1,4 +1,4 @@
-package Estudos.TabelasHash;
+package Estudos.TabelasHash.TabelaAreaReserva;
 
 class Table{
     private int[] tabela;
@@ -72,7 +72,7 @@ class Table{
 }
 
 
-public class HashTableRA{
+public class HashTable{
     public static void main(String[] args){
         Table tabela = new Table();
 
