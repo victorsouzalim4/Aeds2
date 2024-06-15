@@ -130,6 +130,25 @@ class Lista {
         return flag;
     }
 
+    public int getPosicao(int x){
+        boolean flag = false;
+        int count = -1;
+
+        for(Celula i = primeiro; i != null; i = i.prox){
+            if(i.elemento == x){
+                flag = true;
+                i = ultimo;
+            }
+            count++;
+        }
+
+        if(flag){
+            return count;
+        }
+
+        return -1;
+    }
+
     public void mostraLista() {
         for (Celula i = primeiro; i != null; i = i.prox) {
             System.out.print(i.elemento + " ");

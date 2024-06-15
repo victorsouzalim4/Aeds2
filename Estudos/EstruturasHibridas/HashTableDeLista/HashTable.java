@@ -17,6 +17,16 @@ class Table{
         tabela[hash(x)].inserirFim(x);
     }
 
+    public void remover(int x){
+        int pos = tabela[hash(x)].getPosicao(x);
+        if(pos != -1){
+            tabela[hash(x)].remove(pos);
+        }else{
+            System.out.println("Elemento nao encontrado");
+        }
+        
+    }
+
     public void pesquisa(int x){
         if(tabela[hash(x)].pesquisa(x)){
             System.out.println("Elemento Encontrado");
@@ -50,6 +60,8 @@ public class HashTable{
         tabela.inserir(1);
         tabela.inserir(11);
         tabela.inserir(7);
+        tabela.mostra();
+        tabela.remover(13);
         tabela.mostra();
 
     }
