@@ -271,7 +271,7 @@ public class RedBlack{
     public static void main(String args[]) {
 
         Arvore tree = new Arvore(0);
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i <= 1024; i++) {
             tree.inserir(i);
         }
 
