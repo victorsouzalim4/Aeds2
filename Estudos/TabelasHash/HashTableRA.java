@@ -47,7 +47,28 @@ class Table{
                 System.out.print(areaDeReserva[i] + " ");
             }
         }
+        System.out.println();
     }
+
+    public void pesquisa(int x){
+        boolean flag = false;
+        int pos = hash(x);
+
+        if(tabela[pos] == x)flag = true;
+        else{
+            for(int i = 0; i < areaDeReserva.length; i++){
+                if(areaDeReserva[i] == x)flag = true;
+            }
+        }
+
+        if(flag){
+            System.out.println("Elemento encontrado");
+        }else{
+            System.out.println("Elemento nao encontrado");
+        }
+
+    }
+
 }
 
 
@@ -63,5 +84,6 @@ public class HashTableRA{
         tabela.inserir(2);
         tabela.inserir(17);
         tabela.mostra();
+        tabela.pesquisa(3);
     }   
 }
