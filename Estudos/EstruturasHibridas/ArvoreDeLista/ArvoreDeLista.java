@@ -1,4 +1,4 @@
-package Estudos.EstruturasFlexiveis.Arvore.ArvoreDeLista;
+package Estudos.EstruturasHibridas.ArvoreDeLista;
 
 class Contato{
     public String nome;

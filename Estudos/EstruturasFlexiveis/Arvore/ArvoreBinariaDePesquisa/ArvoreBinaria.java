@@ -1,4 +1,4 @@
-package Estudos.EstruturasFlexiveis.Arvore.ArvoreBinaria;
+package Estudos.EstruturasFlexiveis.Arvore.ArvoreBinariaDePesquisa;
 
 class No{
     public int elemento;

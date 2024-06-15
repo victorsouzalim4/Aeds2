@@ -1,4 +1,4 @@
-package Estudos.EstruturasFlexiveis.Arvore.ArvoreDeArvore;
+package Estudos.EstruturasHibridas.ArvoreDeArvore;
 
 class NoFilho {
     public String nome;
