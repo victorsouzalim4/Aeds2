@@ -87,3 +87,5 @@ public class HashTableRA{
         tabela.pesquisa(3);
     }   
 }
+
+//posteriormente irei remodelar a area de reserva para um arrayList para facilitar na implementacao do metodo de remocao da tabela
