@@ -50,4 +50,30 @@ class Arvore{
         }
     }
 
+    public void pesquisa(String palavra){
+        if(pesquisa(raiz, palavra, -1)){
+            System.out.println("Palavra encontrada");
+        }else{
+            System.out.println("Palavra nao encontrada");
+        }
+    }
+
+    private boolean pesquisa(No i, String palavra, int pos){
+        boolean flag;
+        pos++;
+
+        //System.out.println(pos + " " + i.letra);
+
+        if(i.folha != true && i.prox[palavra.charAt(pos)] == null){
+            flag = false;
+        }else if(i.folha == true && pos < palavra.length()){
+            flag = false;
+        }else if(i.folha == true && pos == palavra.length()){
+            flag = true;
+        }else{
+            flag = pesquisa(i.prox[palavra.charAt(pos)], palavra, pos);
+        }
+
+        return flag;
+    }
 }

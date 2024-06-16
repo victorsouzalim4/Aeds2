@@ -9,5 +9,6 @@ public class Main {
         tree.inserir("Abacate");
         tree.inserir("Abacatao");
         tree.mostra();
+        tree.pesquisa("Abacatao");
     }
 }
