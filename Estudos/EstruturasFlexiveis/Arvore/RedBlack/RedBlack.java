@@ -211,14 +211,14 @@ class Arvore {
                 if (i.elemento > pai.elemento) {
                     avo = rotacaoEsq(avo);
                 } else {
-                    pai = rotacaoDir(pai);
+                    avo.dir = rotacaoDir(pai);
                     avo = rotacaoEsq(avo);
                 }
             } else {
                 if (i.elemento < pai.elemento) {
                     avo = rotacaoDir(avo);
                 } else {
-                    pai = rotacaoEsq(pai);
+                    avo.esq = rotacaoEsq(pai);
                     avo = rotacaoDir(avo);
                 }
             }
