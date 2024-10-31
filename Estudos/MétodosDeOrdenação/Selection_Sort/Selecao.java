@@ -15,24 +15,18 @@ public class Selecao{
         
         int n = vetor.length;
         for(int i = 0; i < n-1; i++){
-            int menor = vetor[i];
-            int pos = i;
+            int menor = i;
             for(int j = n-1; j > i; j--){
-                if(vetor[j] < menor){
-                    menor = vetor[j];
-                    pos = j;
+                if(vetor[j] < vetor[menor]){
+                    menor = j;
                 }
             }
-            vetor = swap(vetor, i, pos);
-            for(int k = 0; k < vetor.length; k++){
-                System.out.print(vetor[k] + " ");
-             }
-             System.out.println();
+            vetor = swap(vetor, i, menor);
         }
-
 
         return vetor;
     }
+    
     public static void main(String[] args){
         Scanner Sc = new Scanner(System.in);
 

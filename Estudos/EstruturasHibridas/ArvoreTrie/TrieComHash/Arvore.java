@@ -1,4 +1,4 @@
-package Estudos.EstruturasHibridas.ArvoreTrie;
+package Estudos.EstruturasHibridas.ArvoreTrie.TrieComHash;
 
 class Arvore{
     No raiz;

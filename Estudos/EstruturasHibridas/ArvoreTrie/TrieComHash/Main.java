@@ -1,4 +1,4 @@
-package Estudos.EstruturasHibridas.ArvoreTrie;
+package Estudos.EstruturasHibridas.ArvoreTrie.TrieComHash;
 
 public class Main {
     public static void main(String[] args){
