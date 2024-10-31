@@ -1,4 +1,4 @@
-package Estudos.EstruturasFlexiveis.Aulao;
+package Estudos.EstruturasFlexiveis.Aulao.ListaDupla;
 
 public class IO {
     public static void main(String[] args) {

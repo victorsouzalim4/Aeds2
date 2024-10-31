@@ -1,4 +1,4 @@
-package Estudos.EstruturasFlexiveis.Aulao;
+package Estudos.EstruturasFlexiveis.Aulao.ListaDupla;
 
 class Celula {
     int elemento;
