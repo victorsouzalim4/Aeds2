@@ -37,4 +37,15 @@ class Arvore {
             central(i.dir);
         }
     }
+
+    public int soma(){
+        return soma(raiz);
+    }
+
+    private int soma(No i){
+        if(i == null) return 0;
+
+        int soma = i.elemento + soma(i.esq) + soma(i.dir);
+        return soma;
+    }
 }
