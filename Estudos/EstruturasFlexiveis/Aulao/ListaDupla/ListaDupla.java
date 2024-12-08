@@ -1,6 +1,6 @@
 package Estudos.EstruturasFlexiveis.Aulao.ListaDupla;
 
-import Estudos.EstruturasFlexiveis.Aulao.ListaDupla.ListaDupla.Celula;
+import Estudos.EstruturasFlexiveis.Aulao.ListaDupla.ListaDupla;
 
 class ListaDupla {
     Celula primeira;

@@ -84,7 +84,7 @@ public class HashTable{
         tabela.inserir(2);
         tabela.inserir(17);
         tabela.mostra();
-        tabela.pesquisa(3);
+        //tabela.pesquisa(3);
     }   
 }
 
